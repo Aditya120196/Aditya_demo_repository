@@ -1,0 +1,27 @@
+name: 'mysql_to_synapse_project'
+version: '1.0.0'
+config-version: 2
+
+description: 'A dbt projecr foir transforming data from GCP MySQL and syncing it to Azure Synapse'
+
+model-paths: ["models"]
+seed-path: ["seeds"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+profile: 'prod'
+
+models:
+  mysql_to_synapse_project:
+    +schema: 'dbo'
+    staging:
+      +scheam: 'stg'
+      +materialized: 'view'
+    marts:
+      +schema: 'marts'
+      +materialized: 'table'
+
+target_path: "target"
+clean_targets:
+  - "target"
+  = "dbt_modules"

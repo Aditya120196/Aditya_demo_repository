@@ -1,0 +1,11 @@
+prod:
+  target: prod
+  outputs:
+    prod:
+      type: azure_synapse
+      server: 'synapsedemosept24.sql.azuresynapse.net'
+      database: 'DemoSqlPool'
+      schema: 'dbo'
+      username: sqladminuser
+      password: 'Password_1234'
+      port: 1433
